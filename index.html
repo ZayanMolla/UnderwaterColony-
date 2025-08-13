@@ -12,13 +12,19 @@
 
     <div class="resources">
         <h2>Resources</h2>
-        <p>Metal: <span id="metal">50</span></p>
-        <p>Energy: <span id="energy">30</span></p>
-        <p>Food: <span id="food">20</span></p>
+        <p>Metal: <span id="metal">30</span>/<span id="metalMax">50</span></p>
+        <p>Energy: <span id="energy">20</span>/<span id="energyMax">50</span></p>
+        <p>Food: <span id="food">10</span>/<span id="foodMax">50</span></p>
     </div>
 
     <div class="base">
         <h2>Colony Grid</h2>
+        <label for="moduleSelect">Choose Module:</label>
+        <select id="moduleSelect">
+            <option value="Living Quarters">Living Quarters</option>
+            <option value="Oxygen Generator">Oxygen Generator</option>
+            <option value="Farm">Farm</option>
+        </select>
         <div id="grid" class="grid"></div>
     </div>
 
@@ -30,6 +36,7 @@
             <option value="abyss">Abyss</option>
         </select>
         <button onclick="explore()">Send Drone</button>
+        <span id="cooldownDisplay"></span>
         <div id="drone" class="drone"></div>
         <p id="eventLog"></p>
     </div>
