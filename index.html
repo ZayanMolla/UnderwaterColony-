@@ -18,16 +18,19 @@
     </div>
 
     <div class="base">
-        <h2>Colony Modules</h2>
-        <button onclick="buildModule('Living Quarters', 20, 0, 5)">Build Living Quarters (Metal:20, Food:+5)</button>
-        <button onclick="buildModule('Oxygen Generator', 15, 10, 0)">Build Oxygen Generator (Metal:15, Energy:10)</button>
-        <button onclick="buildModule('Farm', 10, 5, 10)">Build Farm (Metal:10, Energy:5, Food:+10)</button>
-        <ul id="modulesList"></ul>
+        <h2>Colony Grid</h2>
+        <div id="grid" class="grid"></div>
     </div>
 
     <div class="explore">
         <h2>Explore Ocean</h2>
-        <button onclick="explore()">Send Drone to Gather Resources</button>
+        <select id="biome">
+            <option value="shallow">Shallow</option>
+            <option value="deep">Deep</option>
+            <option value="abyss">Abyss</option>
+        </select>
+        <button onclick="explore()">Send Drone</button>
+        <div id="drone" class="drone"></div>
         <p id="eventLog"></p>
     </div>
 </div>

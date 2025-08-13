@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-    max-width: 600px;
+    max-width: 700px;
     margin: auto;
     padding: 20px;
 }
@@ -32,7 +32,37 @@ button:hover {
     background-color: #ff7c00;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 60px);
+    grid-template-rows: repeat(5, 60px);
+    gap: 5px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    background-color: #1b3b6f;
+    border: 2px solid #ffa600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.cell.module {
+    background-color: #ffa600;
+    color: #000;
+    font-size: 10px;
+}
+
+.drone {
+    width: 20px;
+    height: 20px;
+    background-color: #ff0;
+    border-radius: 50%;
+    position: relative;
+    margin: 10px auto;
 }
