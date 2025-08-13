@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Underwater Colony</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Underwater Colony</h1>
+
+    <div class="resources">
+        <h2>Resources</h2>
+        <p>Metal: <span id="metal">50</span></p>
+        <p>Energy: <span id="energy">30</span></p>
+        <p>Food: <span id="food">20</span></p>
+    </div>
+
+    <div class="base">
+        <h2>Colony Modules</h2>
+        <button onclick="buildModule('Living Quarters', 20, 0, 5)">Build Living Quarters (Metal:20, Food:+5)</button>
+        <button onclick="buildModule('Oxygen Generator', 15, 10, 0)">Build Oxygen Generator (Metal:15, Energy:10)</button>
+        <button onclick="buildModule('Farm', 10, 5, 10)">Build Farm (Metal:10, Energy:5, Food:+10)</button>
+        <ul id="modulesList"></ul>
+    </div>
+
+    <div class="explore">
+        <h2>Explore Ocean</h2>
+        <button onclick="explore()">Send Drone to Gather Resources</button>
+        <p id="eventLog"></p>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
