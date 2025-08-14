@@ -2,45 +2,41 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Underwater Colony</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-    <h1>Underwater Colony</h1>
+<h1>🌊 Underwater Colony 🌊</h1>
 
-    <div class="resources">
-        <h2>Resources</h2>
-        <p>Metal: <span id="metal">30</span>/<span id="metalMax">50</span></p>
-        <p>Energy: <span id="energy">20</span>/<span id="energyMax">50</span></p>
-        <p>Food: <span id="food">10</span>/<span id="foodMax">50</span></p>
-    </div>
-
-    <div class="base">
-        <h2>Colony Grid</h2>
-        <label for="moduleSelect">Choose Module:</label>
-        <select id="moduleSelect">
-            <option value="Living Quarters">Living Quarters</option>
-            <option value="Oxygen Generator">Oxygen Generator</option>
-            <option value="Farm">Farm</option>
-        </select>
-        <div id="grid" class="grid"></div>
-    </div>
-
-    <div class="explore">
-        <h2>Explore Ocean</h2>
-        <select id="biome">
-            <option value="shallow">Shallow</option>
-            <option value="deep">Deep</option>
-            <option value="abyss">Abyss</option>
-        </select>
-        <button onclick="explore()">Send Drone</button>
-        <span id="cooldownDisplay"></span>
-        <div id="drone" class="drone"></div>
-        <p id="eventLog"></p>
-    </div>
+<div id="resources">
+    Metal: <span id="metal">0</span> |
+    Energy: <span id="energy">0</span> |
+    Food: <span id="food">0</span> |
+    Oxygen: <span id="oxygen">0</span> |
+    Storage: <span id="storage">0/0</span>
 </div>
+
+<div id="buildMenu">
+    <button onclick="selectModule('Living Space')">Living Space</button>
+    <button onclick="selectModule('Farm')">Farm</button>
+    <button onclick="selectModule('Oxygen Generator')">Oxygen Generator</button>
+    <button onclick="selectModule('Power Plant')">Power Plant</button>
+</div>
+
+<div id="actions">
+    <select id="biome">
+        <option value="shallow">Shallow Waters</option>
+        <option value="deep">Deep Waters</option>
+        <option value="abyss">Abyss</option>
+    </select>
+    <button id="exploreBtn" onclick="explore()">Send Drone</button>
+</div>
+
+<div id="grid"></div>
+
+<h3>Event Log</h3>
+<div id="log"></div>
+
 <script src="script.js"></script>
 </body>
 </html>
