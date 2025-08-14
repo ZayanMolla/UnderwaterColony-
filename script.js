@@ -36,13 +36,6 @@ function initGame() {
         modules.push(null);
     }
 
-    // Calculate initial storage usage
-    resources.storageUsed =
-        resources.metal +
-        resources.energy +
-        resources.food +
-        resources.oxygen;
-
     updateResourcesDisplay();
 }
 window.onload = initGame;
@@ -131,22 +124,27 @@ setInterval(() => {
     let oxy = modules.filter(m => m === "Oxygen Generator").length;
     if (oxy > 0) addResource("oxygen", oxy * 5);
 
-    // Power plants give energy
+    // Power plants give energy faster
     let plants = modules.filter(m => m === "Power Plant").length;
-    if (plants > 0) addResource("energy", plants * 5);
+    if (plants > 0) addResource("energy", plants * 15);
 }, 5000);
 
 // Consume resources every 10 seconds
 setInterval(() => {
     let moduleCount = modules.filter(m => m !== null).length;
-    let consumption = moduleCount * 5;
+    let consumption = moduleCount * 1; // 1 food & oxygen per building
 
     resources.food -= consumption;
     resources.oxygen -= consumption;
 
-    if (resources.food < 0 || resources.oxygen < 0) {
-        logEvent("Your colony has run out of food or oxygen! Game Over.");
-        alert("Game Over!");
+    let gameOverReason = [];
+    if (resources.food < 0) gameOverReason.push("food");
+    if (resources.oxygen < 0) gameOverReason.push("oxygen");
+
+    if (gameOverReason.length > 0) {
+        const reasonText = gameOverReason.join(" and ");
+        logEvent(`Your colony ran out of ${reasonText}! Game Over.`);
+        alert(`Game Over! You ran out of ${reasonText}.`);
         location.reload();
     }
 
